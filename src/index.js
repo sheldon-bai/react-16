@@ -1,12 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import RecipeList from './components/RecipeList'
 
-function App() {
-  return (
-    <>
-      <div>A react app</div>
-    </>
-  )
+async function fetchRecipes() {
+    const resp = await fetch('https://dummyjson.com/recipes')
+    const data = await resp.json()
+
+    return data.recipes
 }
 
-ReactDOM.render(<App />, document.getElementById('root'))
+async function render() {
+    const recipes = await fetchRecipes()
+
+    ReactDOM.render(<RecipeList recipes={ recipes } />, document.getElementById('root'))
+}
+
+render()
