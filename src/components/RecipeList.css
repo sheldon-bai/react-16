@@ -1,0 +1,22 @@
+.recipe-grid {
+  list-style: none;
+  padding: 0;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+/* tablet */
+@media (max-width: 1200px) {
+  .recipe-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* mobile */
+@media (max-width: 700px) {
+  .recipe-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
