@@ -1,10 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import Comp from './Comp'
 
 function App() {
   return (
     <>
-      <div>A react app</div>
+      {<Comp>
+          <h1>abcefghi</h1>
+          <Comp />
+        </Comp>}
     </>
   )
 }
