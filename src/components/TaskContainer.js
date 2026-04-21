@@ -1,11 +1,17 @@
 import React, { Component } from 'react'
 import TaskList from './TaskList'
+import AddTask from './AddTask'
 
 export default class TaskContainer extends Component {
     state = {
         tasks: [],
     }
 
+    handleAdd = newTask => {
+        this.setState({
+            tasks: [...this.state.tasks, newTask]
+        })
+    } 
     componentDidMount() {
         const ts = []
 
@@ -25,6 +31,7 @@ export default class TaskContainer extends Component {
         console.log('TaskContainer render, 数组长度：', this.state.tasks.length)
         return (
             <div>
+                <AddTask onAdd={this.handleAdd}/>
                 <TaskList tasks={this.state.tasks}/>
             </div>
         )
